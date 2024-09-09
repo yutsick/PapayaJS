@@ -1,0 +1,25 @@
+if $modalClass
+  .modal.fade(id=`${$modalId}` class=`${$modalClass}` tabindex='-1' role='dialog')
+
+    .modal-dialog(role='document')
+      .modal-content
+
+        .modal-header
+          block modal-header
+          button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+
+        .modal-body
+          block modal-content
+          
+else 
+  .modal.fade(id=`${$modalId}` tabindex='-1' role='dialog')
+
+    .modal-dialog(role='document')
+      .modal-content
+
+        .modal-header
+          block modal-header
+          button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+
+        .modal-body
+          block modal-content
