@@ -8,7 +8,8 @@ block content
                     .checkout__main-wrapper
                         .d-none.d-lg-block
                             .checkout__logo
-                                img(src="./img/test-papaya-logo.svg", alt="")
+                                a(href="new.html") 
+                                    img(src="./img/test-papaya-logo.svg", alt="")
                             .checkout__header
                                 h2.checkout__title  Checkout
                         .checkout__form
@@ -51,95 +52,18 @@ block content
                                                 img(src="./img/pay-paypal.svg", alt="")
                                     .col-lg-6
                                         .button.btn-cta.pay-google.mt-2 
+                                            span Pay with
                                             span 
                                                 img(src="./img/google-pay.svg", alt="")
                                 .row 
                                     .col-lg-12 
                                         h3.checkout__title--card-payment Credit/Debit Card Payment
-                                .row 
-                                    .col-lg-12 
-                                        .checkout__form-group
-                                            label(for='card') Card number
-                                            input#card.form-control.card(type='text' placeholder='Enter Card Number')
-                                .row 
-                                    .col-lg-6 
-                                        .checkout__form-group
-                                            label(for='card_date') Expiration Date
-                                            input#card_date.form-control(type='text' placeholder='MM/YY')
-                                    .col-lg-6 
-                                        .checkout__form-group
-                                            label(for='card_cvv') CVV
-                                            input#card_cvv.form-control(type='text' placeholder='***')
-                                
-                                .row 
-                                    .col-lg-12 
-                                        .button.btn-cta.submit-btn Submit Payment
-                                .row 
-                                    .col-lg-12 
-                                        .text-disclaimer
-                                            | Your payment is securely processed by BlueSnap, acting as an authorized reseller for Double Eagle Media LTD (Operating as TestPapaya).  For any questions or concerns about your payment, please reach out directly to Double Eagle Media LTD.
-                                
+                        include ../includes/_checkout-bluesnap-form.pug
                 .col-lg-5.order-lg-2.order-1.checkout--aside
-                    .d-lg-none.w-form  
-                        .checkout__logo
-                            img(src="./img/test-papaya-logo.svg", alt="")
-                        .checkout__header
-                            h2.checkout__title  Checkout
-                    .checkout__price-wrapper
-                        .checkout__price-header
-                            h2.checkout__title  NYPD Police Officer Exam Prep Course
-                        .price-widget
-                            
-                            nav
-                                #pricesTab.nav.nav-tabs(role='tablist')
-                                    button#nav1Tab.nav-link(data-bs-toggle='tab' data-bs-target='#nav1' type='button' role='tab' aria-controls='nav1' aria-selected='false')
-                                        span.price-tab__label 1 WEEK 
-                                        .price-tab__price
-                                            span $
-                                            | 79
-                                        s.price-tab__old-price $99
-                                        
-                                    button#nav2Tab.nav-link.active(data-bs-toggle='tab' data-bs-target='#nav2' type='button' role='tab' aria-controls='nav2' aria-selected='true') 
-                                        span.price-tab__label 1 MONTH 
-                                        .price-tab__price
-                                            span $
-                                            | 89
-                                        s.price-tab__old-price $109
-
-                                    button#nav3Tab.nav-link(data-bs-toggle='tab' data-bs-target='#nav3' type='button' role='tab' aria-controls='nav3' aria-selected='false') 
-                                        span.price-tab__label 3 MONTH 
-                                        .price-tab__price
-                                            span $
-                                            | 99
-                                        s.price-tab__old-price $129
-
-                            #pricesContent.tab-content
-                                #nav1.tab-pane.fade(role='tabpanel' aria-labelledby='nav1Tab' tabindex='0') ...
-                                #nav2.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='nav2Tab' tabindex='0') 
-                                    .price-tab__content 
-                                        ul.price-tab__features 
-                                            li <b>Full NYPD</b> Test Simulation
-                                            li <b>6 Deductive</b> Reasoning Tests & Guide
-                                            li <b>5 Inductive</b> Reasoning Tests & Guide
-                                            li <b>2 Memorization</b> Tests & Guide
-                                            li <b>3 Visualization</b> Tests
-                                            li <b>9 Information</b> Ordering Tests
-                                            li <b>2 Problem</b> Sensitivity Tests
-                                            li <b>10 Reading</b> Comprehension Tests & Guide
-                                            li <b>3 Spatial</b> Orientation Tests
-
-                                     
-                                        
-
-                                #nav3.tab-pane.fade(role='tabpanel' aria-labelledby='nav3Tab' tabindex='0') ...
-                        .checkout__total.mt-2 
-
-                            .text-disclaimer.my-0.mx-auto.text-center 14 days money-back guarantee    
-                            h2.mt-4.d-flex.align-items-center.gap-2 
-                                span Total: 
-                                span.price $89
+                    include ../includes/_checkout-widget.pug
 
 block footer
 block scripts 
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4' crossorigin='anonymous')
+    script(src="https://sandpay.bluesnap.com/web-sdk/5/bluesnap.js") 
     script(src='./js/checkout.js')

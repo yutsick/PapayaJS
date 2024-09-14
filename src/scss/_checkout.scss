@@ -1,5 +1,12 @@
 $mobile: 991.8px;
 $mobile-spacing: 32px;
+
+@mixin responsive($breakpoint) {
+    @media screen and (max-width: $breakpoint) {
+        @content;
+    }
+}
+
 .checkout{
     ::placeholder{
         color: #D1D3D3;
@@ -54,7 +61,7 @@ $mobile-spacing: 32px;
         }
     }
     &__form{
-        margin-top: 60px;
+        margin-top: 20px;
         @media screen and (max-width: $mobile){
             margin-top: $mobile-spacing;
             
@@ -174,6 +181,7 @@ $mobile-spacing: 32px;
     &__title--card-payment{
         font-size: clamp(17px, 3vw, 20px);
         margin: 24px 0 10px;
+        color: #3F3F3F;
         @media screen and (max-width: $mobile){
             margin-top: 64px;
             
@@ -189,8 +197,13 @@ $mobile-spacing: 32px;
         &-header{
            
             h2{
-                font-size: clamp(21px,3vw,32px);  
+                font-size: clamp(21px,2vw,32px);  
                 line-height: 130%;
+                    @include responsive($mobile){
+                        text-align: center;
+                        max-width: 300px;
+                        margin: 0 auto 16px;
+                    }
                 }
             
         }
@@ -202,11 +215,22 @@ $mobile-spacing: 32px;
                 margin: $mobile-spacing auto 0;
                 
             }
+            .price-tab{
+                &__features{
+                    margin-bottom: 0;
+                }
+            }
         }
 
     }
 
-
+    &__total{
+        h2{
+            @include responsive($mobile){
+                justify-content: center;
+            }
+        }
+    }
     .error {
     border: 1px solid #FF4D4F;
     &-message{
@@ -250,3 +274,13 @@ $mobile-spacing: 32px;
     }
 
 }
+
+#checkout__bluesnap-form{
+    .form-control{
+        height: 40px;
+    }
+    .error-message{
+        display: block;
+    }
+}
+

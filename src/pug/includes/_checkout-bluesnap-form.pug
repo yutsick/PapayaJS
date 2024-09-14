@@ -1,0 +1,26 @@
+form#checkout__bluesnap-form 
+    .row 
+                           
+        .col-lg-12 
+            .checkout__form-group
+                label(for='card-number') Card number
+                #card-number.form-control(data-bluesnap='ccn')
+                <span class="error-message" id="ccn-error"></span>
+    .row 
+        .col-lg-6 
+            .checkout__form-group
+                label(for='card_expiration') Expiration Date
+                #card-expiration.form-control(data-bluesnap='exp')
+                <span class="error-message" id="exp-error"></span>
+        .col-lg-6 
+            .checkout__form-group
+                label(for='card_cvv') CVV
+                #card-cvv.form-control(data-bluesnap='cvv')
+                <span class="error-message" id="cvv-error"></span>
+    .row 
+        .col-lg-12 
+            .button.btn-cta.submit-btn(type="submit" id="bluesnap-submit") Submit Payment
+    .row 
+        .col-lg-12 
+            .text-disclaimer
+                | Your payment is securely processed by BlueSnap, acting as an authorized reseller for Double Eagle Media LTD (Operating as TestPapaya).  For any questions or concerns about your payment, please reach out directly to Double Eagle Media LTD.
