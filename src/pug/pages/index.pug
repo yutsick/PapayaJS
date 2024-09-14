@@ -61,7 +61,10 @@ block content
 
           .d-flex.justify-content-center.mt-4.banner-horisontal__cta 
             a(href="http://").btn.btn-line.arrow Unlock Your NYPD Career
-
+          //- Price widget for mobile
+          .wrapper__col.d-lg-none.mt-5(aria-label="aside")
+            include ../includes/_price-widget.pug
+          
           h3.title-line.mt-5 What is the NYPD Exam?
 
           section.card-yellow 
@@ -246,69 +249,6 @@ block content
               .testimonial__date  
                 span 09/03/24
 
-
-        .wrapper__col(aria-label="aside")
-          aside.aside
-            .aside__special Special Discounts For Limited Time!
-
-            .counter 
-              .counter__item 
-                | 00
-                span DAYS
-              .counter__div :
-              .counter__item 
-                | 11
-                span HRS
-              .counter__div :
-              .counter__item 
-                | 01
-                span MIN
-              .counter__div :
-              .counter__item 
-                | 20
-                span SEC
-
-            .price-widget
-              nav
-                #pricesTab.nav.nav-tabs(role='tablist')
-                  button#nav1Tab.nav-link(data-bs-toggle='tab' data-bs-target='#nav1' type='button' role='tab' aria-controls='nav1' aria-selected='false')
-                    span.price-tab__label 1 WEEK 
-                    .price-tab__price
-                      span $
-                      | 79
-                    s.price-tab__old-price $99
-                    
-                  button#nav2Tab.nav-link.active(data-bs-toggle='tab' data-bs-target='#nav2' type='button' role='tab' aria-controls='nav2' aria-selected='true') 
-                    span.price-tab__label 1 MONTH 
-                    .price-tab__price
-                      span $
-                      | 89
-                    s.price-tab__old-price $109
-
-                  button#nav3Tab.nav-link(data-bs-toggle='tab' data-bs-target='#nav3' type='button' role='tab' aria-controls='nav3' aria-selected='false') 
-                    span.price-tab__label 3 MONTH 
-                    .price-tab__price
-                      span $
-                      | 99
-                    s.price-tab__old-price $129
-
-              #pricesContent.tab-content
-                #nav1.tab-pane.fade(role='tabpanel' aria-labelledby='nav1Tab' tabindex='0') ...
-                #nav2.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='nav2Tab' tabindex='0') 
-                  .price-tab__content 
-                    ul.price-tab__features 
-                      li <b>Full NYPD</b> Test Simulation
-                      li <b>6 Deductive</b> Reasoning Tests & Guide
-                      li <b>5 Inductive</b> Reasoning Tests & Guide
-                      li <b>2 Memorization</b> Tests & Guide
-                      li <b>3 Visualization</b> Tests
-                      li <b>9 Information</b> Ordering Tests
-                      li <b>2 Problem</b> Sensitivity Tests
-                      li <b>10 Reading</b> Comprehension Tests & Guide
-                      li <b>3 Spatial</b> Orientation Tests
-
-                    .banner-horisontal__cta
-                     a(href="http://").btn.btn-primary.arrow  Join now 
-                    .price-tab__trigger 14 days money-back guarantee
-
-                #nav3.tab-pane.fade(role='tabpanel' aria-labelledby='nav3Tab' tabindex='0') ...
+  
+        .wrapper__col.d-none.d-lg-block(aria-label="aside")
+          include ../includes/_price-widget.pug
