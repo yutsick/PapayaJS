@@ -1,0 +1,24 @@
+nav.navbar.navbar-expand-md#header-navbar
+  .container
+    .navbar__wrapper
+      a.navbar-brand(href="/") LOGO
+      button.navbar-toggler(type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation")
+        span.navbar-toggler-icon
+      .collapse.navbar-collapse#navbarToggler
+        ul.navbar-nav
+          li.nav-item.dropdown
+            a.nav-link.dropdown-toggle(href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false") Courses
+              i.fa.fa-chevron-down.ps-1(aria-hidden="true")
+            ul.dropdown-menu
+              li
+                a.dropdown-item(href="#") Action
+              li
+                a.dropdown-item(href="#") Another action
+              li
+                a.dropdown-item(href="#") Something else here
+          li.nav-item
+            a.nav-link(href="#") About Us
+          li.nav-item
+            a.btn.btn-line(href="#") Log In
+          li.nav-item
+            a.btn.btn-primary(href="#") Get started
