@@ -1217,6 +1217,10 @@ article {
 
 .banner-horisontal__cta {
   transition: 0.3s;
+  @media (max-width: 992px) {
+    width: 270px;
+    
+  }
 }
 .banner-horisontal__cta:hover .btn.btn-primary.arrow::after {
   transform: translateX(5px);
