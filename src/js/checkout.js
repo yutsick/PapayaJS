@@ -114,90 +114,116 @@ document.querySelector('#bluesnap-submit').addEventListener('click', function (e
 
 // End of bluesnap payment fields
 
-const paymentButtons = document.querySelectorAll('.pay-apple, .pay-google, .pay-paypal');
 
-paymentButtons.forEach(button => {
-    button.addEventListener('click', checkFormFields );
+// Form validation
+const paymentButtons = document.querySelectorAll('.pay-apple, .pay-google, .pay-paypal, #bluesnap-submit');
+const inputs = document.querySelectorAll('#checkoutForm input:not([type="checkbox"],#checkout__bluesnap-form input:not([type="checkbox"]');
+const checkbox = document.querySelector('#checkoutForm .custom-checkbox');
+
+// Checkbox on click validation
+checkbox.addEventListener('click', checkTerms);
+
+// Input on blur validation
+inputs.forEach(input => {
+    input.addEventListener('blur',  checkOnBlur );
 });
 
-function checkFormFields() {    
-    event.preventDefault(); 
-    let isValid = true;
-     const fields = document.querySelectorAll('#checkoutForm input.form-control:not(#card):not(#card_date):not(#card_cvv), #checkoutForm .custom-checkbox');
+// Button on click validation
+paymentButtons.forEach(button => {
+    button.addEventListener('click', checkOnSubmit );
+});
 
-   
-    fields.forEach(function(field) {
-      const errorMessage = field.parentElement.querySelector('.error-message');
-      const errorMessageChkBox = field.parentElement.nextSibling;
 
-      // Handle password validation separately
-      if (field.id === 'pass') {
-        const password = field.value;
-        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/;
+function checkOnBlur(element) {
+  const field = element.target;
+  fieldsValidation(field);
+}
+
+function checkOnSubmit() {  
+  const fields = document.querySelectorAll('#checkoutForm input.form-control, #checkoutForm .custom-checkbox');
   
-        if (!passwordRegex.test(password)) {
-          field.classList.add('error');
-        //   errorMessage.textContent = 'Password must be 8-20 characters, contain at least one letter, one digit, and one special character.';
-          errorMessage.style.display = 'block';
-          isValid = false;
-        } else {
-          field.classList.remove('error');
-        //   errorMessage.textContent = '';
-          errorMessage.style.display = 'none';
-        }
-      }
-
-       // Email validation
-       else if (field.id === 'email') {
-        const email = field.value;
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (!emailRegex.test(email)) {
-          field.classList.add('error');
-        //   errorMessage.textContent = 'Please enter a valid email address.';
-          errorMessage.style.display = 'block';
-          isValid = false;
-        } else {
-          field.classList.remove('error');
-        //   errorMessage.textContent = '';
-          errorMessage.style.display = 'none';
-        }
-      }
-
-      // Handle checkbox validation separately
-      else if (field.type === 'checkbox') {
-        if(!field.checked){
-            field.classList.add('error');
-            // errorMessageChkBox.textContent = 'You must agree to the Terms & Conditions.';
-            errorMessageChkBox.style.display = 'block';
-            isValid = false;
-        } else{
-            field.classList.remove('error');
-            // errorMessageChkBox.textContent = '';
-            errorMessageChkBox.style.display = 'none';
-        }
-        
-      }
-
-      // Handle empty fields
-      else if (field.value.trim() === '') {
-        field.classList.add('error');
-        // errorMessage.textContent = field.getAttribute('placeholder') + ' is required.';
-        errorMessage.style.display = 'block';
-        isValid = false;
-      } else {
-        // Remove error styles
-        field.classList.remove('error');
-        // errorMessage.textContent = '';
-        errorMessage.style.display = 'none';
+  fields.forEach(function(field) {
+    isValid = fieldsValidation(field);
+     if (isValid) {
+        alert('Form is valid!');
       }
     });
-  
-    if (isValid) {
-      // Code for submitting form
-      alert('Form is valid!');
-    }
+
   };
+
+  function fieldsValidation(field){
+    let isValid = true;
+    const errorMessage = field.parentElement.querySelector('.error-message');
+
+    if (field.id === 'pass') {
+
+      const password = field.value;
+      const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/;
+
+      if (!passwordRegex.test(password)) {
+
+        field.classList.add('error');
+        errorMessage.style.display = 'block';
+        isValid = false;
+
+      } else {
+
+        field.classList.remove('error');
+        errorMessage.style.display = 'none';
+
+      }
+    } else if (field.id === 'email') {
+
+      const email = field.value;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailRegex.test(email)) {
+
+        field.classList.add('error');
+        errorMessage.style.display = 'block';
+        isValid = false;
+
+      } else {
+
+        field.classList.remove('error');
+        errorMessage.style.display = 'none';
+      }
+
+    } else if (field.value.trim() === '') {
+
+      field.classList.add('error');
+      errorMessage.style.display = 'block';
+      isValid = false;
+
+    } else if (field.type === 'checkbox') {
+
+      isValid = checkTerms(checkbox);
+
+    }  else {
+
+      field.classList.remove('error');
+      errorMessage.style.display = 'none';
+
+    }
+    return isValid;
+  }
+
+  function checkTerms(el){
+    let field = (el.target) ? el.target : el;
+    const errorMessageChkBox = field.parentElement.nextSibling;
+    if(!field.checked){
+        field.classList.add('error');
+        errorMessageChkBox.style.display = 'block';
+        return false;
+    } else{
+        field.classList.remove('error');
+        errorMessageChkBox.style.display = 'none';
+    }
+  }
+
+// -----------End vaidation
+
+
 // Change Total price on tab click
 document.querySelectorAll('[data-bs-toggle]').forEach(function (toggle) { 
     toggle.addEventListener('click', function () {
