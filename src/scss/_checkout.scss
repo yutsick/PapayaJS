@@ -14,14 +14,14 @@ $mobile-spacing: 32px;
     }
 
     // background: rgb(246,246,250);
-    background: linear-gradient(90deg, #fff 0%, #fff 72%, #e2e2e2 72%, #e2e2e2 100%);
+    background: linear-gradient(90deg, #fff 0%, #fff 72%, #f6f6f6 72%, #f6f6f6 100%);
     @media screen and (max-width: $mobile){
         background: #fff;
         
     }
 
     &--aside{
-        background-color: #e2e2e2;
+        background-color: #f6f6f6;
         @media screen and (max-width: $mobile){
             background-color: #fff;;
         }

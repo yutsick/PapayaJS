@@ -86,9 +86,10 @@ bluesnap.hostedPaymentFieldsCreate({
 });
 
 document.querySelector('#bluesnap-submit').addEventListener('click', function (event) {
-
+  isValid = checkOnSubmit(true);
   bluesnap.hostedPaymentFieldsSubmitData(function(callback) {
-    if (callback.error) {
+    
+    if (callback.error || !isValid) {
       const errorArray = callback.error;
       errorArray.forEach(error => {
         const errorElement = document.getElementById(error.tagId + "-error");
@@ -116,7 +117,7 @@ document.querySelector('#bluesnap-submit').addEventListener('click', function (e
 
 
 // Form validation
-const paymentButtons = document.querySelectorAll('.pay-apple, .pay-google, .pay-paypal, #bluesnap-submit');
+const paymentButtons = document.querySelectorAll('.pay-apple, .pay-google, .pay-paypal');
 const inputs = document.querySelectorAll('#checkoutForm input:not([type="checkbox"],#checkout__bluesnap-form input:not([type="checkbox"]');
 const checkbox = document.querySelector('#checkoutForm .custom-checkbox');
 
@@ -130,7 +131,7 @@ inputs.forEach(input => {
 
 // Button on click validation
 paymentButtons.forEach(button => {
-    button.addEventListener('click', checkOnSubmit );
+    button.addEventListener('click', () => {checkOnSubmit()} );
 });
 
 
@@ -139,16 +140,19 @@ function checkOnBlur(element) {
   fieldsValidation(field);
 }
 
-function checkOnSubmit() {  
+function checkOnSubmit(bluesnap = false) {  
   const fields = document.querySelectorAll('#checkoutForm input.form-control, #checkoutForm .custom-checkbox');
-  
+  isValid = true;
   fields.forEach(function(field) {
     isValid = fieldsValidation(field);
-     if (isValid) {
-        alert('Form is valid!');
-      }
+ 
     });
 
+  if (isValid && !bluesnap) {
+      alert('Form is valid!');
+    } else if (isValid && bluesnap) {
+      return isValid;
+    }
   };
 
   function fieldsValidation(field){
@@ -158,7 +162,7 @@ function checkOnSubmit() {
     if (field.id === 'pass') {
 
       const password = field.value;
-      const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/;
+      const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()_+=])[A-Za-z\d!@#$%^&*()_+=]{8,20}$/;
 
       if (!passwordRegex.test(password)) {
 
@@ -219,6 +223,7 @@ function checkOnSubmit() {
         field.classList.remove('error');
         errorMessageChkBox.style.display = 'none';
     }
+    return true;
   }
 
 // -----------End vaidation
