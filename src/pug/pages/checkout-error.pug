@@ -1,0 +1,80 @@
+extends ../layout/layout.pug
+block nav
+block content 
+    main.checkout
+        .container 
+            .row
+                .col-lg-7.order-lg-1.order-2
+                    .checkout__main-wrapper
+                        .d-none.d-lg-block
+                            .checkout__logo
+                                a(href="new.html") 
+                                    img(src="./img/test-papaya-logo.svg", alt="")
+                            .checkout__header
+                                h2.checkout__title  Checkout
+                                .checkout__payment-error.d-flex.align-items-center.gap-2   
+                                    span 
+                                        svg(width='31' height='32' viewbox='0 0 31 32' fill='none' xmlns='http://www.w3.org/2000/svg')
+                                            path(d='M15.4358 3.2C14.5801 3.2 13.847 3.7405 13.5365 4.51041L2.36763 24.4771V24.4792C2.16606 24.8157 2.05888 25.2038 2.05811 25.6C2.05811 26.1658 2.27494 26.7084 2.66091 27.1085C3.04688 27.5086 3.57037 27.7333 4.11621 27.7333C4.16451 27.733 4.21277 27.7309 4.26092 27.7271L4.26494 27.7333H15.4358H26.6067L26.6107 27.725C26.6588 27.7295 26.7071 27.7323 26.7554 27.7333C27.3012 27.7333 27.8247 27.5086 28.2107 27.1085C28.5967 26.7084 28.8135 26.1658 28.8135 25.6C28.8131 25.2031 28.7059 24.8143 28.504 24.4771L28.4879 24.4479L28.4859 24.4458L17.3351 4.51041C17.0246 3.7405 16.2915 3.2 15.4358 3.2ZM14.1877 12.1167H16.6839L16.4769 19.0208H14.3947L14.1877 12.1167ZM15.4398 21.1312C16.2857 21.1312 16.7925 21.603 16.7925 22.4083C16.7925 23.1987 16.2857 23.6687 15.4398 23.6687C14.5878 23.6687 14.0771 23.1987 14.0771 22.4083C14.0771 21.603 14.5867 21.1312 15.4398 21.1312Z' fill='#FF4D4F')
+
+                                    span.text-error
+                                        | An error occurred while processing your payment. Please try again or use a different payment method.
+    
+                                
+                        .checkout__form
+                            form(id="checkoutForm" action="#" method="POST")    
+                                .row 
+                                    .col-lg-6 
+                                        .checkout__form-group
+                                            label(for='name', class="required") First Name
+                                            input#name.form-control(type='text' placeholder='Your First Name' required)
+                                            <span class="error-message">Please enter your First Name</span>
+                                    .col-lg-6 
+                                        .checkout__form-group
+                                            label(for='lastname', class="required") Last Name
+                                            input#lastname.form-control(type='text' placeholder='Your Last Name' required)
+                                            <span class="error-message">Please enter your Last Name</span>
+                                .row    
+                                    .col-lg-12
+                                        .checkout__form-group
+                                            label(for='email', class="required") Email
+                                            input#email.form-control(type='email' placeholder='Enter your email' required)
+                                            <span class="error-message">Please enter your email address</span>
+                                .row 
+                                    .col-lg-12 
+                                        .checkout__form-group
+                                            label(for='pass', class="required") Create Account Password
+                                            input#pass.form-control(type='password' placeholder='Enter password' required)
+                                            <span class="error-message">Password must be at least 8 characters and include a letter, a digit, and a special character.</span>
+                                .row 
+                                    .col-lg-12 
+                                        .checkout__form-group.small
+                                            .d-flex.gap-2
+                                                input#agree.custom-checkbox(type='checkbox' required)
+                                                label.m-0(for='agree') I have read & agreed to the website 
+                                                    a(href="#", class="text-green") Terms & Conditions
+                                            <span class="error-message">You must agree to the Terms and Conditions to proceed</span>
+                                .row 
+                                    .col-lg-12 
+                                        .button.btn-cta.pay-apple.mt-2 
+                                            span Pay with
+                                            span 
+                                                img(src="./img/apple-pay.svg", alt="")
+                                .row 
+                                    .col-lg-12 
+                                        .button.btn-cta.pay-google.mt-2 
+                                            span Pay with
+                                            span 
+                                                img(src="./img/google-pay.svg", alt="")
+                                .row 
+                                    .col-lg-12 
+                                        h3.checkout__title--card-payment Credit/Debit Card Payment
+                        include ../includes/_checkout-bluesnap-form.pug
+                .col-lg-5.order-lg-2.order-1.checkout--aside
+                    include ../includes/_checkout-widget.pug
+
+block footer
+block scripts 
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4' crossorigin='anonymous')
+    script(src="https://sandpay.bluesnap.com/web-sdk/5/bluesnap.js") 
+    script(src='./js/checkout.js')

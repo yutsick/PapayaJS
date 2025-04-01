@@ -177,7 +177,12 @@ h6 {
 h1 {
   font-weight: 700;
 }
-
+h2{
+  font-size: clamp(26px,5vw,32px);  
+  line-height: 36px;
+  font-weight: 600;
+  color: #1D383F;
+}
 article {
   b,
   strong {
@@ -1052,7 +1057,7 @@ article {
   background: #ffffff;
   border: 1px solid #4dbcb6;
   border-radius: 3px;
-
+  max-width: 360px;
   .nav-tabs {
     width: 100%;
     display: grid;
@@ -1257,3 +1262,5 @@ article {
     }
   }
 }
+
+@import "checkout";

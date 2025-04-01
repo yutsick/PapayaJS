@@ -1,0 +1,69 @@
+extends ../layout/layout.pug
+block nav
+block content 
+    main.checkout
+        .container 
+            .row
+                .col-lg-7.order-lg-1.order-2
+                    .checkout__main-wrapper
+                        .d-none.d-lg-block
+                            .checkout__logo
+                                a(href="new.html") 
+                                    img(src="./img/test-papaya-logo.svg", alt="")
+                            .checkout__header
+                                h2.checkout__title  Checkout
+                        .checkout__form
+                            form(id="checkoutForm" action="#" method="POST")    
+                                .row 
+                                    .col-lg-6 
+                                        .checkout__form-group
+                                            label(for='name', class="required") First Name
+                                            input#name.form-control(type='text' placeholder='Your First Name' required)
+                                            <span class="error-message">Please enter your First Name</span>
+                                    .col-lg-6 
+                                        .checkout__form-group
+                                            label(for='lastname', class="required") Last Name
+                                            input#lastname.form-control(type='text' placeholder='Your Last Name' required)
+                                            <span class="error-message">Please enter your Last Name</span>
+                                .row    
+                                    .col-lg-12
+                                        .checkout__form-group
+                                            label(for='email', class="required") Email
+                                            input#email.form-control(type='email' placeholder='Enter your email' required)
+                                            <span class="error-message">Please enter your email address</span>
+                                .row 
+                                    .col-lg-12 
+                                        .checkout__form-group
+                                            label(for='pass', class="required") Create Account Password
+                                            input#pass.form-control(type='password' placeholder='Enter password' required)
+                                            <span class="error-message">Password must be at least 8 characters and include a letter, a digit, and a special character.</span>
+                                .row 
+                                    .col-lg-12 
+                                        .checkout__form-group.small
+                                            .d-flex.gap-2
+                                                input#agree.custom-checkbox(type='checkbox' required)
+                                                label.m-0(for='agree') I have read & agreed to the website 
+                                                    a(href="#", class="text-green") Terms & Conditions
+                                            <span class="error-message">You must agree to the Terms and Conditions to proceed</span>
+                                .row 
+                                    .col-lg-6
+                                        .button.btn-cta.pay-paypal.mt-2 
+                                            span 
+                                                img(src="./img/pay-paypal.svg", alt="")
+                                    .col-lg-6
+                                        .button.btn-cta.pay-google.mt-2 
+                                            span Pay with
+                                            span 
+                                                img(src="./img/google-pay.svg", alt="")
+                                .row 
+                                    .col-lg-12 
+                                        h3.checkout__title--card-payment Credit/Debit Card Payment
+                        include ../includes/_checkout-bluesnap-form.pug
+                .col-lg-5.order-lg-2.order-1.checkout--aside
+                    include ../includes/_checkout-widget.pug
+
+block footer
+block scripts 
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4' crossorigin='anonymous')
+    script(src="https://sandpay.bluesnap.com/web-sdk/5/bluesnap.js") 
+    script(src='./js/checkout.js')

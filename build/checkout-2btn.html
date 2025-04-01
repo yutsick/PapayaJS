@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Police Officer NYPD Exam Prep Course</title>
+    <meta property="og:title" content="Police Officer NYPD Exam Prep Course">
+    <meta property="og:description" content="Start your NYPD journey with our concise online test preparation. Achieve your dream of joining New York's Finest.">
+    <meta property="og:image" content="https://test.com/img/og-image.jpg">
+    <meta property="og:image:width" content="960">
+    <meta property="og:image:height" content="600">
+    <meta property="og:url" content="https://test.com">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta name="robots" content="noindex">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="./js/test.js"></script>
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    <main> 
+      <main class="checkout">
+        <div class="container"> 
+          <div class="row">
+            <div class="col-lg-7 order-lg-1 order-2">
+              <div class="checkout__main-wrapper">
+                <div class="d-none d-lg-block">
+                  <div class="checkout__logo"><a href="new.html"> <img src="./img/test-papaya-logo.svg" alt=""></a></div>
+                  <div class="checkout__header">
+                    <h2 class="checkout__title"> Checkout</h2>
+                  </div>
+                </div>
+                <div class="checkout__form">
+                  <form id="checkoutForm" action="#" method="POST">   
+                    <div class="row"> 
+                      <div class="col-lg-6"> 
+                        <div class="checkout__form-group">
+                          <label class="required" for="name">First Name</label>
+                          <input class="form-control" id="name" type="text" placeholder="Your First Name" required><span class="error-message">Please enter your First Name</span>
+                        </div>
+                      </div>
+                      <div class="col-lg-6"> 
+                        <div class="checkout__form-group">
+                          <label class="required" for="lastname">Last Name</label>
+                          <input class="form-control" id="lastname" type="text" placeholder="Your Last Name" required><span class="error-message">Please enter your Last Name</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">   
+                      <div class="col-lg-12">
+                        <div class="checkout__form-group">
+                          <label class="required" for="email">Email</label>
+                          <input class="form-control" id="email" type="email" placeholder="Enter your email" required><span class="error-message">Please enter your email address</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row"> 
+                      <div class="col-lg-12"> 
+                        <div class="checkout__form-group">
+                          <label class="required" for="pass">Create Account Password</label>
+                          <input class="form-control" id="pass" type="password" placeholder="Enter password" required><span class="error-message">Password must be at least 8 characters and include a letter, a digit, and a special character.</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row"> 
+                      <div class="col-lg-12"> 
+                        <div class="checkout__form-group small">
+                          <div class="d-flex gap-2">
+                            <input class="custom-checkbox" id="agree" type="checkbox" required>
+                            <label class="m-0" for="agree">I have read & agreed to the website <a class="text-green" href="#">Terms & Conditions</a></label>
+                          </div><span class="error-message">You must agree to the Terms and Conditions to proceed</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row"> 
+                      <div class="col-lg-6">
+                        <div class="button btn-cta pay-paypal mt-2"> <span> <img src="./img/pay-paypal.svg" alt=""></span></div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="button btn-cta pay-google mt-2"> <span>Pay with</span><span> <img src="./img/google-pay.svg" alt=""></span></div>
+                      </div>
+                    </div>
+                    <div class="row"> 
+                      <div class="col-lg-12"> 
+                        <h3 class="checkout__title--card-payment">Credit/Debit Card Payment</h3>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <form id="checkout__bluesnap-form"> 
+                  <div class="row"> 
+                    <div class="col-lg-12"> 
+                      <div class="checkout__form-group">
+                        <label for="card-number">Card number</label>
+                        <div class="form-control" id="card-number" data-bluesnap="ccn"></div><span class="error-message" id="ccn-error"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row"> 
+                    <div class="col-lg-6"> 
+                      <div class="checkout__form-group">
+                        <label for="card_expiration">Expiration Date</label>
+                        <div class="form-control" id="card-expiration" data-bluesnap="exp"></div><span class="error-message" id="exp-error"></span>
+                      </div>
+                    </div>
+                    <div class="col-lg-6"> 
+                      <div class="checkout__form-group">
+                        <label for="card_cvv">CVV</label>
+                        <div class="form-control" id="card-cvv" data-bluesnap="cvv"></div><span class="error-message" id="cvv-error"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row"> 
+                    <div class="col-lg-12"> 
+                      <div class="button btn-cta submit-btn" type="submit" id="bluesnap-submit">Submit Payment</div>
+                    </div>
+                  </div>
+                  <div class="row"> 
+                    <div class="col-lg-12"> 
+                      <div class="text-disclaimer">Your payment is securely processed by BlueSnap, acting as an authorized reseller for Double Eagle Media LTD (Operating as TestPapaya).  For any questions or concerns about your payment, please reach out directly to Double Eagle Media LTD.</div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="col-lg-5 order-lg-2 order-1 checkout--aside">
+              <div class="d-lg-none w-form"> 
+                <div class="checkout__logo"><a href="new.html"> <img src="./img/test-papaya-logo.svg" alt=""></a></div>
+                <div class="checkout__header">
+                  <h2 class="checkout__title"> Checkout</h2>
+                </div>
+              </div>
+              <div class="checkout__price-wrapper">
+                <div class="checkout__price-header">
+                  <h2 class="checkout__title"> NYPD Police Officer Exam Prep Course</h2>
+                </div>
+                <div class="price-widget">
+                  <nav>
+                    <div class="nav nav-tabs" id="pricesTab" role="tablist">
+                      <button class="nav-link" id="nav1Tab" data-bs-toggle="tab" data-bs-target="#nav1" type="button" role="tab" aria-controls="nav1" aria-selected="false"><span class="price-tab__label">1 WEEK </span>
+                        <div class="price-tab__price"><span>$</span>79</div>
+                        <s class="price-tab__old-price">$99</s>
+                      </button>
+                      <button class="nav-link active" id="nav2Tab" data-bs-toggle="tab" data-bs-target="#nav2" type="button" role="tab" aria-controls="nav2" aria-selected="true"> <span class="price-tab__label">1 MONTH </span>
+                        <div class="price-tab__price"><span>$</span>89</div>
+                        <s class="price-tab__old-price">$109</s>
+                      </button>
+                      <button class="nav-link" id="nav3Tab" data-bs-toggle="tab" data-bs-target="#nav3" type="button" role="tab" aria-controls="nav3" aria-selected="false"> <span class="price-tab__label">3 MONTH </span>
+                        <div class="price-tab__price"><span>$</span>99</div>
+                        <s class="price-tab__old-price">$129</s>
+                      </button>
+                    </div>
+                  </nav>
+                  <div class="tab-content" id="pricesContent">
+                    <div class="tab-pane fade" id="nav1" role="tabpanel" aria-labelledby="nav1Tab" tabindex="0"> 
+                      <div class="price-tab__content"> 
+                        <ul class="price-tab__features"> 
+                          <li><b>Full NYPD</b> Test Simulation</li>
+                          <li><b>6 Deductive</b> Reasoning Tests & Guide</li>
+                          <li><b>5 Inductive</b> Reasoning Tests & Guide</li>
+                          <li><b>2 Memorization</b> Tests & Guide</li>
+                          <li><b>3 Visualization</b> Tests</li>
+                          <li><b>9 Information</b> Ordering Tests</li>
+                          <li><b>2 Problem</b> Sensitivity Tests</li>
+                          <li><b>10 Reading</b> Comprehension Tests & Guide</li>
+                          <li><b>3 Spatial</b> Orientation Tests</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade show active" id="nav2" role="tabpanel" aria-labelledby="nav2Tab" tabindex="0"> 
+                      <div class="price-tab__content"> 
+                        <ul class="price-tab__features"> 
+                          <li><b>Full NYPD</b> Test Simulation</li>
+                          <li><b>6 Deductive</b> Reasoning Tests & Guide</li>
+                          <li><b>5 Inductive</b> Reasoning Tests & Guide</li>
+                          <li><b>2 Memorization</b> Tests & Guide</li>
+                          <li><b>3 Visualization</b> Tests</li>
+                          <li><b>9 Information</b> Ordering Tests</li>
+                          <li><b>2 Problem</b> Sensitivity Tests</li>
+                          <li><b>10 Reading</b> Comprehension Tests & Guide</li>
+                          <li><b>3 Spatial</b> Orientation Tests</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav3" role="tabpanel" aria-labelledby="nav3Tab" tabindex="0"> 
+                      <div class="price-tab__content"> 
+                        <ul class="price-tab__features"> 
+                          <li><b>Full NYPD</b> Test Simulation</li>
+                          <li><b>6 Deductive</b> Reasoning Tests & Guide</li>
+                          <li><b>5 Inductive</b> Reasoning Tests & Guide</li>
+                          <li><b>2 Memorization</b> Tests & Guide</li>
+                          <li><b>3 Visualization</b> Tests</li>
+                          <li><b>9 Information</b> Ordering Tests</li>
+                          <li><b>2 Problem</b> Sensitivity Tests</li>
+                          <li><b>10 Reading</b> Comprehension Tests & Guide</li>
+                          <li><b>3 Spatial</b> Orientation Tests</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="checkout__total mt-2"> 
+                  <div class="text-disclaimer my-0 mx-auto text-center">14 days money-back guarantee    </div>
+                  <h2 class="mt-4 d-flex align-items-center gap-2"> <span>Total: </span><span class="price">$89</span></h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://sandpay.bluesnap.com/web-sdk/5/bluesnap.js"> </script>
+    <script src="./js/checkout.js"></script>
+  </body>
+</html>
